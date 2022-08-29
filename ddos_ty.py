@@ -1,3 +1,4 @@
+# DDOS TCP FLOODER
 import sys,os,time,random,socket
 from colorama import Fore,Back,init
 import socket
@@ -22,17 +23,17 @@ RESET = '\033[38m'
 os.system("clear")
 
 print(f"""
+          ____ANONYMOUS____
 {R}________   {W}    .___
 {R}\______ \  {W}  __| _/____  ______
 {R} |    |  \ {W} / __ |/  _ \/  ___/\n{R} |    `   \{W}/ /_/ (  <_> )___ 
 {R}/_______  /{W}\____ |\____/____  >
-{R}        \/ {W}     \/          \/ {G}.{W}v{R}2\n""")
+{R}        \/ {W}     \/          \/ {G}.{W}v{R}2\n
+           Welcome D2 DDoS
+""")
 
 time.sleep(2)
 print("")
-# DDOS TCP FLOODER
-# v0.0.2
-print("Welcome D2 DDoS")
 
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
