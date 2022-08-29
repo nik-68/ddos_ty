@@ -60,7 +60,7 @@ def v1():
     print ("Jika Tidak Berfungsi Silakan Ketik Manual:\ncd DDOS_TOOLS && python ddos.py")
     time.sleep(8)
     os.system("git clone https://github.com/AmmarrBN/DDOS_TOOLS")
-    os.system("cd DDOS_TOOLS && python3 ddos.py")
+    os.system("python3 ddos.py")
     
 
 def put():
