@@ -9,15 +9,19 @@ R = Fore.RED
 G = Fore.GREEN
 BL = Fore.BLACK
 Y = Fore.YELLOW
-Hijau="\033[1;92m"
-putih="\033[1;97m"
-abu="\033[1;90m"
-kuning="\033[1;93m"
-ungu="\033[1;95m"
-biru="\033[1;96m"
+BLACK = '\033[30m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+WHITE = '\033[37m'
+RESET = '\033[38m'
+
 os.system("clear")
-def usage():
-	print(f"""
+
+print(f"""
 {R}________   {W}    .___
 {R}\______ \  {W}  __| _/____  ______
 {R} |    |  \ {W} / __ |/  _ \/  ___/\n{R} |    `   \{W}/ /_/ (  <_> )___ 
