@@ -100,7 +100,7 @@ time.sleep(0.005)
 fake_ip = '182.21.20.32'
 def start():
     global useragents, ref, acceptall
-    hh = random._urandom(10024)
+    hh = random._urandom(3016)
     xx = int(0)
     useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
     accept = random.choice(acceptall)
