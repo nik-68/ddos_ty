@@ -119,7 +119,7 @@ def start():
             print("\033[31m[+]\033[33m Attacking {0}:{1} |\033[32m Sent: {2}".format(str(ip), int(port), xx))
         except:
             s.close()
-            print("\033[34m[+]\033[33m Server Down.")
+            print("\033[36m[+]\033[33m Server Down.")
 
 for x in range(thread):
     thred = threading.Thread(target=start)
