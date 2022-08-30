@@ -95,7 +95,7 @@ print("\033[31m ╔═══\033[33m[ Packet/s [400] ] •")
 pack = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
 time.sleep(0.5)
 print("\033[31m ╔═══\033[33m[ Потоки [800] Threads  ] •")
-thread = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
+threds = int(input("\033[31m ┗━━━━━━\033[92m•> \033[0m"))
 time.sleep(0.005)
 fake_ip = '182.21.20.32'
 def start():
@@ -123,5 +123,5 @@ def start():
             print("\033[36m[+]\033[33m Server Down.")
 
 for x in range(thread):
-    thred = threading.Thread(target=start)
-    thred.start()
+    threds = threading.Thread(target=start)
+    threds.start()
